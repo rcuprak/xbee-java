@@ -24,6 +24,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -39,6 +40,7 @@ import com.digi.xbee.api.models.ATCommandStatus;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({XBeeDevice.class})
+@PowerMockIgnore("jdk.internal.reflect.*")
 public class ResetModuleTest {
 
 	// Constants.
@@ -46,6 +48,7 @@ public class ResetModuleTest {
 	private static final String WAIT_FOR_MODEM_RESET_STATUS_PACKET_METHOD = "waitForModemResetStatusPacket";
 	
 	// Variables.
+
 	private SerialPortRxTx connectionInterface;
 	private XBeeDevice xbeeDevice;
 	

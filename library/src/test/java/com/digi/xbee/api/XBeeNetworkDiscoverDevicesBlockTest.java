@@ -67,7 +67,7 @@ public class XBeeNetworkDiscoverDevicesBlockTest {
 		
 		PowerMockito.whenNew(NodeDiscovery.class).withArguments(deviceMock).thenReturn(ndMock);
 		PowerMockito.when(ndMock.discoverDevice(Mockito.anyString())).thenReturn(idFoundDevice);
-		PowerMockito.when(ndMock.discoverDevices(Mockito.anyListOf(String.class))).thenReturn(idFoundDevices);
+		PowerMockito.when(ndMock.discoverDevices(Mockito.<String>anyList())).thenReturn(idFoundDevices);
 		
 		network = PowerMockito.spy(new XBeeNetwork(deviceMock));
 	}

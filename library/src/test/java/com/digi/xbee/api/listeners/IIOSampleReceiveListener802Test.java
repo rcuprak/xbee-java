@@ -242,7 +242,7 @@ public class IIOSampleReceiveListener802Test {
 		Whitebox.invokeMethod(dataReader, PACKET_RECEIVED_METHOD, invalidPacket);
 		
 		// Verify that the notifyIOSampleReceived private method was not called.
-		PowerMockito.verifyPrivate(dataReader, Mockito.never()).invoke(NOTIFY_IO_SAMPLE_RECEIVED_METHOD, Mockito.anyObject(), Mockito.anyObject());
+		PowerMockito.verifyPrivate(dataReader, Mockito.never()).invoke(NOTIFY_IO_SAMPLE_RECEIVED_METHOD, Mockito.any(), Mockito.any());
 		
 		// Verify that the listener callback is not executed
 		Mockito.verify(receiveIOSampleListener, Mockito.never()).ioSampleReceived((RemoteXBeeDevice) Mockito.any(), (IOSample) Mockito.any());

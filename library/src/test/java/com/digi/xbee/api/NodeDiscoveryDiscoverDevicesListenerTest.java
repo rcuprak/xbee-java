@@ -115,7 +115,7 @@ public class NodeDiscoveryDiscoverDevicesListenerTest {
 				}
 		});
 		
-		PowerMockito.when(networkMock.addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class))).thenAnswer(
+		PowerMockito.when(networkMock.addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList())).thenAnswer(
 			new Answer<Object>() {
 				@Override
 				public Object answer(InvocationOnMock invocation)
@@ -311,7 +311,7 @@ public class NodeDiscoveryDiscoverDevicesListenerTest {
 		List<RemoteXBeeDevice> ndInternalDeviceList = Whitebox.<List<RemoteXBeeDevice>> getInternalState(nd, DEVICE_LIST);
 		assertThat("Internal Node Discovery list must be empty", ndInternalDeviceList.size(), is(equalTo(0)));
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.never()).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 	}
 	
@@ -330,7 +330,7 @@ public class NodeDiscoveryDiscoverDevicesListenerTest {
 		PowerMockito.when(deviceMock.getParameter("SM")).thenReturn(new byte[]{0x00}); // Not sleeping device
 		
 		// Do not wait so much time for DigiMesh devices
-		PowerMockito.doReturn(100L).when(nd, "calculateTimeout", Mockito.anyListOf(IDiscoveryListener.class));
+		PowerMockito.doReturn(100L).when(nd, "calculateTimeout", Mockito.<Object[]>any());
 		
 		XBee64BitAddress addr64 = new XBee64BitAddress("0013A20040A6A0DB");
 		XBee16BitAddress addr16 = new XBee16BitAddress("FFFE");
@@ -379,7 +379,7 @@ public class NodeDiscoveryDiscoverDevicesListenerTest {
 		List<RemoteXBeeDevice> ndInternalDeviceList = Whitebox.<List<RemoteXBeeDevice>> getInternalState(nd, DEVICE_LIST);
 		assertThat("Internal Node Discovery list must be empty", ndInternalDeviceList.size(), is(equalTo(0)));
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(remoteDevice);
 	}
@@ -398,7 +398,7 @@ public class NodeDiscoveryDiscoverDevicesListenerTest {
 		PowerMockito.when(deviceMock.getXBeeProtocol()).thenReturn(protocol);
 		
 		// Do not wait so much time for DigiPoint devices
-		PowerMockito.doReturn(100L).when(nd, "calculateTimeout", Mockito.anyListOf(IDiscoveryListener.class));
+		PowerMockito.doReturn(100L).when(nd, "calculateTimeout", Mockito.<Object[]>any());
 		
 		XBee64BitAddress addr64 = new XBee64BitAddress("0013A20040A6A0DB");
 		XBee16BitAddress addr16 = new XBee16BitAddress("FFFE");
@@ -447,7 +447,7 @@ public class NodeDiscoveryDiscoverDevicesListenerTest {
 		List<RemoteXBeeDevice> ndInternalDeviceList = Whitebox.<List<RemoteXBeeDevice>> getInternalState(nd, DEVICE_LIST);
 		assertThat("Internal Node Discovery list must be empty", ndInternalDeviceList.size(), is(equalTo(0)));
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(remoteDevice);
 	}
@@ -515,7 +515,7 @@ public class NodeDiscoveryDiscoverDevicesListenerTest {
 		List<RemoteXBeeDevice> ndInternalDeviceList = Whitebox.<List<RemoteXBeeDevice>> getInternalState(nd, DEVICE_LIST);
 		assertThat("Internal Node Discovery list must be empty", ndInternalDeviceList.size(), is(equalTo(0)));
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(remoteDevice);
 	}
@@ -580,7 +580,7 @@ public class NodeDiscoveryDiscoverDevicesListenerTest {
 		List<RemoteXBeeDevice> ndInternalDeviceList = Whitebox.<List<RemoteXBeeDevice>> getInternalState(nd, DEVICE_LIST);
 		assertThat("Internal Node Discovery list must be empty", ndInternalDeviceList.size(), is(equalTo(0)));
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(remoteDevice);
 	}
@@ -661,7 +661,7 @@ public class NodeDiscoveryDiscoverDevicesListenerTest {
 		List<RemoteXBeeDevice> ndInternalDeviceList = Whitebox.<List<RemoteXBeeDevice>> getInternalState(nd, DEVICE_LIST);
 		assertThat("Internal Node Discovery list must be empty", ndInternalDeviceList.size(), is(equalTo(0)));
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(2)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 	}
 	

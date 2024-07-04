@@ -97,7 +97,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 				}
 		});
 		
-		PowerMockito.when(networkMock.addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class))).thenAnswer(
+		PowerMockito.when(networkMock.addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList())).thenAnswer(
 			new Answer<Object>() {
 				@Override
 				public Object answer(InvocationOnMock invocation)
@@ -195,7 +195,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 		
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, id);
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.never()).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 	}
 	
@@ -232,7 +232,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 		
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, id);
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 	}
 	
@@ -274,7 +274,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, id);
 
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(remote);
 	}
@@ -316,7 +316,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, id);
 
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(remote);
 	}
@@ -360,7 +360,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, id);
 
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(remote);
 	}
@@ -402,7 +402,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, id);
 
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 		Mockito.verify(networkMock, Mockito.times(1)).addRemoteDevice(remote);
 	}
@@ -454,7 +454,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 		
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, null);
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.never()).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 	}
 	
@@ -493,7 +493,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 		
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, null);
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(list.size())).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 	}
 	
@@ -540,7 +540,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 		
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, null);
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(2)).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 	}
 	
@@ -588,7 +588,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 		
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, null);
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(list.size())).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 	}
 	
@@ -628,7 +628,7 @@ public class NodeDiscoveryDiscoverDevicesBlockTest {
 		
 		PowerMockito.verifyPrivate(nd, Mockito.times(1)).invoke(DISCOVER_DEVICES_API_METHOD, null, null);
 		
-		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.anyListOf(RemoteXBeeDevice.class));
+		Mockito.verify(networkMock, Mockito.never()).addRemoteDevices(Mockito.<RemoteXBeeDevice>anyList());
 		Mockito.verify(networkMock, Mockito.times(list.size())).addRemoteDevice(Mockito.any(RemoteXBeeDevice.class));
 	}
 	

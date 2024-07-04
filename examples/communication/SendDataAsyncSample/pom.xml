@@ -14,12 +14,23 @@
 
 	<properties>
 		<rxtx.native.libs.dir>rxtx-native-libs</rxtx.native.libs.dir>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<directory>../../../target/examples/communication/SendDataAsyncSample</directory>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
